@@ -19,14 +19,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+//home page
 app.get('/', function(req,res) {
   res.sendFile(__dirname + '/public/index.html');
   var cursor = db.collection('teams').find().toArray(function(err, results) {
     console.log(results);
   });
-
 });
 
+//called on form submit
 app.post('/add', function(req, res) {
   console.log(req.body);
   if (req.body.name != "none" && req.body.points != ""){
@@ -40,22 +41,22 @@ app.post('/add', function(req, res) {
   else{
     console.log("Bad input");
   }
-
-
 });
 
+//called on load to populate graph
 app.get('/getData', function(req, res) {
   var cursor = db.collection('teams').find().toArray(function(err, results) {
     console.log(results);
-    return (results);
-
+    res.send(results);
   });
 });
 
+//page to update scores
 app.get('/updateScores', function(req, res){
   res.sendFile(__dirname + '/public/update.html')
 })
 
+//not used
 app.put('/update', function(req, res){
   //handle put request
   db.collection('teams').findOneAndUpdate({name:'testteam'},{

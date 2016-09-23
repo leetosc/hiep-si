@@ -66,10 +66,11 @@ function connect(server, port, clientId, username, password) {
 				}
 			})
 			// will use this to get data from database and make graph
-			// $.get("lastData", function(payload){
-			// 		var parsed = JSON.parse(payload)
-			// 		statusUpdate(parsed.d.occupiedState, parsed.d.stats)
-			// });
+			$.get("getData", function(payload){
+					// var parsed = JSON.parse(payload);
+					// statusUpdate(parsed.d.occupiedState, parsed.d.stats)
+					console.log(payload);
+			});
 		}
 		connectOptions.onFailure = function() {
 			$("#errorAlertText").html("Failed to connect!");
@@ -148,61 +149,6 @@ function clearLog() {
 	$("#logSize").html("0");
 }
 
-//Other functions for dashboard
-
-function setLightsColor(picker) {
-    var hue = Math.round(picker.hsv[0]/360*65535);
-    var sat = Math.round(picker.hsv[1]*0.01*254);
-    var bri = Math.round(picker.hsv[2]*0.01*254);
-    console.log("Setting lights to: hue:" + hue + ", sat: " + sat + ", bri: " + bri);
-    // publish command
-    // {"d":{"msg":"setHue","target":"4","hue":hue,"sat":sat}}
-    var topic = "iot-2/type/RaspberryPi/id/b827eb6ecceb/cmd/setLights/fmt/json";
-    try {
-	    var message = new Messaging.Message(JSON.stringify({d:{msg:"setHue","target":"4","hue":hue,"sat":sat,"bri":bri}}));
-	    message.destinationName = topic;
-	    client.send(message);
-
-	    message = new Messaging.Message(JSON.stringify({d:{msg:"setHue","target":"6","hue":hue,"sat":sat,"bri":bri}}));
-	    message.destinationName = topic;
-	    client.send(message);
-
-	    message = new Messaging.Message(JSON.stringify({d:{msg:"setHue","target":"7","hue":hue,"sat":sat,"bri":bri}}));
-	    message.destinationName = topic;
-	    client.send(message);
-
-	    message = new Messaging.Message(JSON.stringify({d:{msg:"setHue","target":"8","hue":hue,"sat":sat,"bri":bri}}));
-	    message.destinationName = topic;
-	    client.send(message);
-	  } catch (e) {
-	  	console.log(e);
-	  }
-
-
-}
-
-
-function turnoff() {
-    console.log("turning off lights..");
-    var topic = "iot-2/type/RaspberryPi/id/b827eb6ecceb/cmd/setLights/fmt/json";
-
-    var message = new Messaging.Message(JSON.stringify({d:{msg:"turnoff","target":"4"}}));
-    message.destinationName = topic;
-    client.send(message);
-
-    message = new Messaging.Message(JSON.stringify({d:{msg:"turnoff","target":"6"}}));
-    message.destinationName = topic;
-    client.send(message);
-
-    message = new Messaging.Message(JSON.stringify({d:{msg:"turnoff","target":"7"}}));
-    message.destinationName = topic;
-    client.send(message);
-
-    message = new Messaging.Message(JSON.stringify({d:{msg:"turnoff","target":"8"}}));
-    message.destinationName = topic;
-    client.send(message);
-
-}
 
 function onMessageSent(msg) {
 	try {
@@ -219,4 +165,8 @@ function onMessageSent(msg) {
 	} catch (e) {
 		console.log(e);
 	}
+}
+
+function calculateTeams(payload){
+	
 }
