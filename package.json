@@ -1,0 +1,26 @@
+{
+  "name": "hiep-si",
+  "version": "1.0.0",
+  "description": "Hiep Si announcements and scores",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leetosc/hiep-si.git"
+  },
+  "author": "Denny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leetosc/hiep-si/issues"
+  },
+  "homepage": "https://github.com/leetosc/hiep-si#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "chart.js": "^2.3.0",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "node-fetch": "^1.6.1"
+  }
+}

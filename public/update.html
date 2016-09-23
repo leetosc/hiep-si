@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Don Bosco Hiep Si</title>
+</head>
+
+<body>
+  <h2>Update Scores</h2>
+  <br>
+  <form action="/add" method="POST">
+    <select name="name">
+      <option value="none">Select a Team</option>
+      <option value="phero">Phêrô</option>
+      <option value="anre">Anrê</option>
+      <option value="giacobetien">Giacôbê Tiền</option>
+      <option value="gioan">Gioan</option>
+      <option value="philiphe">Philiphê</option>
+      <option value="nathanaen">Nathanaen</option>
+      <option value="toma">Tôma</option>
+      <option value="mattheu">Matthêu</option>
+    </select>
+    <input type="text" placeholder="points" name="points">
+    <select id="monthselect" name="month">
+      <option value="1">January</option>
+      <option value="2">February</option>
+      <option value="3">March</option>
+      <option value="4">April</option>
+      <option value="5">May</option>
+      <option value="6">June</option>
+      <option value="7">July</option>
+      <option value="8">August</option>
+      <option value="9">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+    <br>
+    <input type="text" placeholder="Comment (optional)" name="comment">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- <div>
+    <h2>Update score</h2>
+    <button id="update">Update Score</button>
+  </div> -->
+
+  <!-- Set month dropdown to current month -->
+  <script>
+  var pagedate = new Date();
+  function setSelectedIndex(s, i)  {
+    s.options[i-1].selected = true;
+    return;
+  }
+  var pagemonth = pagedate.getMonth()+1;
+  setSelectedIndex(document.getElementById("monthselect"),pagemonth);
+  </script>
+
+
+
+  <script src="js/utils/jquery.min.js"></script>
+  <script src="js/utils/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

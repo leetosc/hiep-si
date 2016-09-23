@@ -1,0 +1,14 @@
+Database: mLab
+user: leeto
+pw: hiepsi
+
+
+Teams:
+phero
+anre
+giacobetien
+gioan
+philiphe
+nathanaen
+toma
+mattheu
