@@ -11,41 +11,37 @@
 		<link href="css/style.css" rel="stylesheet">
 	</head>
 
-	<body onload="init()">
+	<body onload="init()" class="bgBrown">
 		<div class="navbar navbar-inverse" role="navigation">
 			<div class="container">
-                  <div class="container-fluid">
-                    <div class="navbar-header">
-                      <a class="navbar-brand" href="#">Don Bosco Hiep Si Dashboard</a>
-                    </div>
-                    <ul class="nav nav-tabs">
-                      <li><a href="http://caesar-dashboard.mybluemix.net" target="_blank">BHT</a></li>
-                    </ul>
-                  </div>
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Don Bosco Hiep Si Dashboard</a>
+          </div>
+          <ul class="nav nav-tabs">
+            <li><a href="http://caesar-dashboard.mybluemix.net" target="_blank">BHT</a></li>
+          </ul>
+        </div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="panel panel-success">
-						<div class="panel-heading" id="connectPanelHeading">
+						<div class="panel-heading" id="ImpInfoPanelHeading">
 							<h3 class="panel-title">
-								<a id="connectPanelLink" data-toggle="collapse" data-target="#collapseConnect">
+								<a id="ImpInfoPanelLink" data-toggle="collapse" data-target="#collapseImpInfo">
 									Important Info
 								</a>
 							</h3>
 						</div>
-						<div id="collapseConnect" class="panel-collapse collapse in">
+						<div id="collapseImpInfo" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<div class="container">
 									<div class="row">
 										<div class="col-md-4">
 											<h2>Announcements</h2>
-											<!-- <div class="occupiedState">
-												<div class='light green'>&nbsp;</div>
-												<div class='light yellow'>&nbsp;</div>
-												<div class='light red'>&nbsp;</div>
-											</div> -->
+
 											test
 										</div>
 										<div class="col-md-4">
@@ -65,17 +61,17 @@
 				</div>
 			</div>
 
-            <div class="row">
+      <div class="row">
 				<div class="col-xs-12">
 					<div class="panel panel-info">
-						<div class="panel-heading" id="colorPickerHeading">
+						<div class="panel-heading" id="teamscoresHeading">
 							<h3 class="panel-title">
-								<a id="colorpicker" data-toggle="collapse" data-target="#collapsecolorpicker">Team Scores</a>
-									<span style="margin-left: 10px; padding: 2px 5px" class="badge badge-info" id="colorPickerSize"></span>
+								<a id="teamscores" data-toggle="collapse" data-target="#collapseteamscores">Team Scores</a>
+									<span style="margin-left: 10px; padding: 2px 5px" class="badge badge-info" id="teamscoresSize"></span>
 								</a>
 							</h3>
 						</div>
-						<div id="collapsecolorpicker" class="panel-collapse collapse in">
+						<div id="collapseteamscores" class="panel-collapse collapse in">
 							<div class="panel-body">
                                 <!-- <button id="colorinput" class="btn btn-text btn-mini jscolor {valueElement:null,value:'14ffad'}" style="display: inline-block; margin: 5px 5px 8x 10px;">Choose Color</button>
                                 <button class="btn btn-text btn-mini" style="display: inline-block; margin: 5px 5px 8x 10px;" onclick="setLightsColor(document.getElementById('colorinput').jscolor)">Set Color</button>
@@ -110,7 +106,7 @@
 			</div>
 
 		</div>
-    </div>
+
 
 
 

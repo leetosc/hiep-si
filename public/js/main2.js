@@ -20,8 +20,7 @@ function closePanel(type) {
 
 
 function startup(){
-	$("body").addClass("bgBrown");
-	$("body").removeClass("bgRed");
+	// $("body").addClass("bgBrown");;
 	// appendLog("Started up");
 	$.get("getData", function(payload){
 			// console.log(payload);
