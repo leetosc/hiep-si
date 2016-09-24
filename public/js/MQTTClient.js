@@ -70,6 +70,7 @@ function connect(server, port, clientId, username, password) {
 					// var parsed = JSON.parse(payload);
 					// statusUpdate(parsed.d.occupiedState, parsed.d.stats)
 					console.log(payload);
+					calculateTeams(payload);
 			});
 		}
 		connectOptions.onFailure = function() {
@@ -168,5 +169,25 @@ function onMessageSent(msg) {
 }
 
 function calculateTeams(payload){
-	
+	var currentMonth = new Date().getMonth()+1;
+	var teamlist = {};
+
+	console.log(payload);
+
+	for (var element=0; element < payload.length; element++) {
+		if (!(payload[element].name in teamlist)){
+			teamlist[payload[element].name] = {"pointsCurrentMonth":0, "pointsTotal":0};
+			// console.log("Added " + payload[element].name);
+		}
+		if (payload[element].month == currentMonth){
+			teamlist[payload[element].name].pointsCurrentMonth += parseInt(payload[element].points);
+		}
+		teamlist[payload[element].name].pointsTotal += parseInt(payload[element].points);
+
+
+	}
+	console.log("teamlist:" + JSON.stringify(teamlist));
+
+
+
 }

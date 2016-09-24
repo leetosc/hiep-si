@@ -7,7 +7,7 @@ var fetch = require('node-fetch');
 MongoClient.connect('mongodb://leeto:hiepsi@ds035836.mlab.com:35836/hiepsi', function(err, database) {
   // .. start the server
   if (err) return console.log(err)
-  db = database
+  db = database;
   //start server only if database is connected
   app.listen(3000, function() {
     console.log('listening on 3000')
