@@ -280,3 +280,35 @@ body {
 a {
 	 color: yellow;
 }
+
+/*Modal*/
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #d9b38c;
+    color: white;
+}
+
+
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #d2a679;
+    color: white;
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
