@@ -24,7 +24,7 @@ function startup(){
 	$("body").removeClass("bgRed");
 	// appendLog("Started up");
 	$.get("getData", function(payload){
-			console.log(payload);
+			// console.log(payload);
 			calculateTeams(payload);
 	});
 }
@@ -52,7 +52,7 @@ function calculateTeams(payload){
 	var currentMonth = new Date().getMonth()+1;
 	var teamlist = {};
 
-	console.log(payload);
+	// console.log(payload);
 
 	for (var element=0; element < payload.length; element++) {
 		if (!(payload[element].name in teamlist)){
