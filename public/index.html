@@ -7,8 +7,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
+		<link href="css/mdb.min.css" rel="stylesheet">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
+
 	</head>
 
 	<body onload="init()" class="bgBrown">
@@ -73,10 +75,12 @@
 						</div>
 						<div id="collapseteamscores" class="panel-collapse collapse in">
 							<div class="panel-body">
-                                <!-- <button id="colorinput" class="btn btn-text btn-mini jscolor {valueElement:null,value:'14ffad'}" style="display: inline-block; margin: 5px 5px 8x 10px;">Choose Color</button>
-                                <button class="btn btn-text btn-mini" style="display: inline-block; margin: 5px 5px 8x 10px;" onclick="setLightsColor(document.getElementById('colorinput').jscolor)">Set Color</button>
-                                <button class="btn btn-text btn-mini" style="display: inline-block; margin: 5px 5px 8x 10px;" onclick="turnoff()">Turn Off Lights</button> -->
-                                graph
+								<canvas id="myChart"></canvas>
+								<br>
+								<div align="center">
+									<div class='light2 current'>&nbsp;</div>: Current Month &nbsp&nbsp&nbsp
+									<div class='light2 total'>&nbsp;</div>: Total Points
+								</div>
 
 							</div>
 						</div>
@@ -115,5 +119,6 @@
 		<script src="js/utils/jquery.min.js"></script>
 		<script src="js/utils/bootstrap.min.js"></script>
 		<script src="js/main2.js"></script>
+		<script src="js/utils/mdb.min.js"></script>
 	</body>
 </html>

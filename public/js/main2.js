@@ -68,4 +68,35 @@ function calculateTeams(payload){
 	}
 	console.log("teamlist:" + JSON.stringify(teamlist));
 
+	$(function () {
+			var data = {
+				labels: ["Phêrô", "Anrê", "Giacôbê Tiền", "Gioan", "Philiphê", "Nathanaen", "Tôma","Matthêu"],
+				datasets: [
+						{
+								label: "Current Month",
+								fillColor: "rgba(0,92,179,0.6)",
+								strokeColor: "rgba(0,77,153,0.8)",
+								highlightFill: "rgba(0,66,128,0.75)",
+								highlightStroke: "rgba(0,53,102,1)",
+								data: [teamlist.phero.pointsCurrentMonth, teamlist.anre.pointsCurrentMonth, teamlist.giacobetien.pointsCurrentMonth, teamlist.gioan.pointsCurrentMonth, teamlist.philiphe.pointsCurrentMonth, teamlist.nathanaen.pointsCurrentMonth, teamlist.toma.pointsCurrentMonth, teamlist.mattheu.pointsCurrentMonth]
+						},
+						{
+								label: "Total",
+								fillColor: "rgba(151,187,205,0.5)",
+								strokeColor: "rgba(151,187,205,0.8)",
+								highlightFill: "rgba(151,187,205,0.75)",
+								highlightStroke: "rgba(151,187,205,1)",
+								data: [teamlist.phero.pointsTotal, teamlist.anre.pointsTotal, teamlist.giacobetien.pointsTotal, teamlist.gioan.pointsTotal, teamlist.philiphe.pointsTotal, teamlist.nathanaen.pointsTotal, teamlist.toma.pointsTotal, teamlist.mattheu.pointsTotal]
+						}
+				]
+			};
+	    var option = {
+	    responsive: true,
+	    };
+
+	    // Get the context of the canvas element we want to select
+	    var ctx = document.getElementById("myChart").getContext('2d');
+	    var myBarChart = new Chart(ctx).Bar(data, option);
+	});
+
 }
