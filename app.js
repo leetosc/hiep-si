@@ -4,19 +4,23 @@ var bodyParser = require('body-parser')
 var MongoClient = require('mongodb').MongoClient
 var fetch = require('node-fetch');
 
+app.set('port', (process.env.PORT || 5000));
+
 MongoClient.connect('mongodb://leeto:hiepsi@ds035836.mlab.com:35836/hiepsi', function(err, database) {
   // .. start the server
   if (err) return console.log(err)
   db = database;
   //start server only if database is connected
-  app.listen(3000, function() {
-    console.log('listening on 3000')
+  app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
   });
 });
 
 
+
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
 //home page
