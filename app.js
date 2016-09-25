@@ -19,7 +19,6 @@ MongoClient.connect('mongodb://leeto:hiepsi@ds035836.mlab.com:35836/hiepsi', fun
 
 
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(express.static('public'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
@@ -27,7 +26,8 @@ app.use(bodyParser.json());
 app.get('/', function(req,res) {
   res.sendFile(__dirname + '/public/index.html');
   var cursor = db.collection('teams').find().toArray(function(err, results) {
-    console.log(results);
+    // console.log(results);
+    console.log("Page loaded");
   });
 });
 
@@ -47,10 +47,10 @@ app.post('/add', function(req, res) {
   }
 });
 
-//called on load to populate graph
+//called on load to get data to populate graph
 app.get('/getData', function(req, res) {
   var cursor = db.collection('teams').find().toArray(function(err, results) {
-    console.log(results);
+    // console.log(results);
     res.send(results);
   });
 });

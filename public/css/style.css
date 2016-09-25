@@ -315,3 +315,16 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+/*---end modal--*/
+
+
+@media (max-width: 768px) {
+  .mobile-only {
+      display:block !important;
+  }
+
+  .desktop-only {
+      display:none !important;
+	}
+}
