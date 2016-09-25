@@ -1,6 +1,5 @@
 
 function init() {
-	// connect(server, port, clientId, username, password);
 	startup();
 }
 
@@ -20,10 +19,8 @@ function closePanel(type) {
 
 
 function startup(){
-	// $("body").addClass("bgBrown");;
 	// appendLog("Started up");
 	$.get("getData", function(payload){
-			// console.log(payload);
 			calculateTeams(payload);
 	});
 }
@@ -46,7 +43,7 @@ function clearLog() {
 	$("#logSize").html("0");
 }
 
-
+// Takes payload and calculates points for current month and total and draws graph
 function calculateTeams(payload){
 	var currentMonth = new Date().getMonth()+1;
 	var teamlist = {};
@@ -64,11 +61,11 @@ function calculateTeams(payload){
 		teamlist[payload[element].name].pointsTotal += parseInt(payload[element].points);
 		appendLog(JSON.stringify(payload[element]));
 
-
 	}
 	console.log("teamlist:" + JSON.stringify(teamlist));
 
 	$(function () {
+		  //hardcode graph data labels for now..
 			var data = {
 				labels: ["Phêrô", "Anrê", "Giacôbê Tiền", "Gioan", "Philiphê", "Nathanaen", "Tôma","Matthêu"],
 				datasets: [
