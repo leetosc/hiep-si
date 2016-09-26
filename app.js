@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser')
 var MongoClient = require('mongodb').MongoClient
 var fetch = require('node-fetch');
+var schedule = require('node-schedule');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -89,3 +90,11 @@ app.put('/update', function(req, res){
     res.send(result);
   })
 })
+
+
+var job = schedule.scheduleJob({hour:23, minute: 59}, function(){
+  var date = new Date();
+  console.log(date.toString());
+  //call function that calculates BHT points for the day
+
+});

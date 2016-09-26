@@ -14,6 +14,8 @@
 
 function validateBHT() {
   // console.log("valdiating..");
+  // TODO: validate full name (first last)
+
   if(document.BHTform.teamname.value == "none") {
     document.getElementById("errorText").innerHTML = '<font color="red">Please select your team</font>';
     return false;

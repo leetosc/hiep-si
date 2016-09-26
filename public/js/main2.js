@@ -1,6 +1,7 @@
 
 function init() {
 	startup();
+	presetFormDate();
 }
 
 var Panel = {
@@ -23,6 +24,7 @@ function startup(){
 	$.get("getData", function(payload){
 			calculateTeams(payload);
 	});
+
 }
 
 var logEntries = 0;
@@ -96,4 +98,13 @@ function calculateTeams(payload){
 	    var myBarChart = new Chart(ctx).Bar(data, option);
 	});
 
+}
+
+function presetFormDate(){
+	var pagedate = new Date();
+
+	var pagemonth = pagedate.getMonth()+1;
+	var pageday = pagedate.getUTCDate();
+	var pageyear = pagedate.getUTCFullYear();
+	document.getElementById("datefield").value=pagemonth + "/"+ pageday + "/" + pageyear;
 }

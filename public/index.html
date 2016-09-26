@@ -125,6 +125,8 @@
 		      </div>
 		      <div class="modal-body">
 		        <p>Hover over text for more info.</p>
+						<br><p>Under construction!  Please check back later =)</p><br>
+
 						<form action="/submitBHT" method="POST" id="BHTform" name="BHTform" onsubmit="return(validateBHT())">
 					    Team: <select name="teamname">
 					      <option value="none">Select a Team</option>
@@ -156,6 +158,8 @@
 							<div data-toggle="tooltip" title="Read any sacred books of the Roman Catholic Church such as the Holy Bible, Catechism books, prayer books, saint books, religious stories, etc"> Read Holy Scripture:</div> <input type="number" placeholder="Number of times" name="readbible" value="0">
 
 					    <br>
+							<div data-toggle="tooltip" title="Today's date"> Date:</div> <input type="text" name="date" id="datefield" readonly>
+							<br>
 							<h4 id="errorText"></h4>
 							<button type="submit" class="btn btn-primary">Submit</button>
 					  </form>
