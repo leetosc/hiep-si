@@ -124,7 +124,7 @@
 		        <h4 class="modal-title">Bó Hoa Thiêng</h4>
 		      </div>
 		      <div class="modal-body">
-		        <p>Under Construction.  Check back later!</p>
+		        <p>Hover over text for more info.</p>
 						<form action="/submitBHT" method="POST" id="BHTform" name="BHTform" onsubmit="return(validateBHT())">
 					    Team: <select name="teamname">
 					      <option value="none">Select a Team</option>
@@ -139,21 +139,21 @@
 					    </select>
 							<br>
 
-							Name: <input type="text" placeholder="Full Name" name="fullname" value="">
+							<div data-toggle="tooltip" title="Full Name">Name:</div> <input type="text" placeholder="Full Name" name="fullname" value="">
 							<br>
-					    Prayer: <input type="number" placeholder="Number of times" name="prayer" value="0">
+					    <div data-toggle="tooltip" title="Morning prayer, noon prayer, night prayer, etc… any time you spend time talking to Jesus"> Prayer:</div> <input type="number" placeholder="Number of times" name="prayer" value="0">
 					    <br>
-							Communion: <input type="number" placeholder="Number of times" name="communion" value="0">
+							<div data-toggle="tooltip" title="Receive the consecrated bread and wine (the Blessed Sacrament), or receive Jesus into your heart by having Spiritual Communion."> Communion:</div> <input type="number" placeholder="Number of times" name="communion" value="0">
 							<br>
-							Sacrifice: <input type="number" placeholder="Number of times" name="sacrifice" value="0">
+							<div data-toggle="tooltip" title="Be willing to do less of what you want in order to do more of what God wants from you… by self-sacrificing or doing sacrifices for your family, friends, and even strangers">Sacrifice:</div> <input type="number" placeholder="Number of times" name="sacrifice" value="0">
 							<br>
-							Apostolic Works: <input type="number" placeholder="Number of times" name="apostolicwork" value="0">
+							<div data-toggle="tooltip" title="(Community services) By serving others to glorify God’s name… such as performing liturgical ministries (altar server, lector, usher, gift bearer, choir, etc.), helping around the church or community, volunteering, doing charity, pray for the souls in purgatory, etc."> Apostolic Works:</div> <input type="number" placeholder="Number of times" name="apostolicwork" value="0">
 							<br>
-							Attend Mass: <input type="number" placeholder="Number of times" name="mass" value="0">
+							<div data-toggle="tooltip" title="Go to church services and actively participate during mass">Attend Mass:</div> <input type="number" placeholder="Number of times" name="mass" value="0">
 							<br>
-							Visit God/Adoration: <input type="number" placeholder="Number of times" name="adoration" value="0">
+							<div data-toggle="tooltip" title="Visit to the Blessed Sacrament in the tabernacle, or attend the Eucharistic Adoration">Visit God/Adoration:</div> <input type="number" placeholder="Number of times" name="adoration" value="0">
 							<br>
-							Read Holy Scripture: <input type="number" placeholder="Number of times" name="readbible" value="0">
+							<div data-toggle="tooltip" title="Read any sacred books of the Roman Catholic Church such as the Holy Bible, Catechism books, prayer books, saint books, religious stories, etc"> Read Holy Scripture:</div> <input type="number" placeholder="Number of times" name="readbible" value="0">
 
 					    <br>
 							<h4 id="errorText"></h4>
@@ -162,7 +162,7 @@
 		      </div>
 		      <div class="modal-footer">
 		        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button> -->
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="clearErrorText()">Close</button>
 		      </div>
 		    </div>
 

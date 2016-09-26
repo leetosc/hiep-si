@@ -13,7 +13,7 @@
 // })
 
 function validateBHT() {
-  console.log("valdiating..");
+  // console.log("valdiating..");
   if(document.BHTform.teamname.value == "none") {
     document.getElementById("errorText").innerHTML = '<font color="red">Please select your team</font>';
     return false;
@@ -27,4 +27,8 @@ function validateBHT() {
     return false;
   }
 
+}
+
+function clearErrorText(){
+  document.getElementById("errorText").innerHTML = '';
 }
