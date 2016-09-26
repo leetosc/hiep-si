@@ -6,6 +6,7 @@ var fetch = require('node-fetch');
 
 app.set('port', (process.env.PORT || 5000));
 
+
 MongoClient.connect('mongodb://leeto:hiepsi@ds035836.mlab.com:35836/hiepsi', function(err, database) {
   // .. start the server
   if (err) return console.log(err)
@@ -45,6 +46,18 @@ app.post('/add', function(req, res) {
   else{
     console.log("Bad input");
   }
+});
+
+app.post('/submitBHT', function(req, res) {
+  console.log(req.body);
+  // db.collection('bht').save(req.body, function(err, result) {
+  //   if (err) return console.log(err)
+  //
+  //   console.log('Logged BHT submission');
+  //   res.redirect('/');
+  // });
+  console.log("logged bht submission");
+  res.redirect('/');
 });
 
 //called on load to get data to populate graph

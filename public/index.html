@@ -125,9 +125,43 @@
 		      </div>
 		      <div class="modal-body">
 		        <p>Under Construction.  Check back later!</p>
+						<form action="/submitBHT" method="POST" id="BHTform" name="BHTform" onsubmit="return(validateBHT())">
+					    Team: <select name="teamname">
+					      <option value="none">Select a Team</option>
+					      <option value="phero">Phêrô</option>
+					      <option value="anre">Anrê</option>
+					      <option value="giacobetien">Giacôbê Tiền</option>
+					      <option value="gioan">Gioan</option>
+					      <option value="philiphe">Philiphê</option>
+					      <option value="nathanaen">Nathanaen</option>
+					      <option value="toma">Tôma</option>
+					      <option value="mattheu">Matthêu</option>
+					    </select>
+							<br>
+
+							Name: <input type="text" placeholder="Full Name" name="fullname" value="">
+							<br>
+					    Prayer: <input type="number" placeholder="Number of times" name="prayer" value="0">
+					    <br>
+							Communion: <input type="number" placeholder="Number of times" name="communion" value="0">
+							<br>
+							Sacrifice: <input type="number" placeholder="Number of times" name="sacrifice" value="0">
+							<br>
+							Apostolic Works: <input type="number" placeholder="Number of times" name="apostolicwork" value="0">
+							<br>
+							Attend Mass: <input type="number" placeholder="Number of times" name="mass" value="0">
+							<br>
+							Visit God/Adoration: <input type="number" placeholder="Number of times" name="adoration" value="0">
+							<br>
+							Read Holy Scripture: <input type="number" placeholder="Number of times" name="readbible" value="0">
+
+					    <br>
+							<h4 id="errorText"></h4>
+							<button type="submit" class="btn btn-primary">Submit</button>
+					  </form>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+		        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button> -->
 						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 		      </div>
 		    </div>
@@ -140,6 +174,7 @@
 
 		<script src="js/utils/jquery.min.js"></script>
 		<script src="js/utils/bootstrap.min.js"></script>
+		<script src="js/main.js"></script>
 		<script src="js/main2.js"></script>
 		<script src="js/utils/mdb.min.js"></script>
 	</body>
