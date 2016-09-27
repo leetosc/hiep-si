@@ -196,11 +196,14 @@ function calculateDayBHT() {
         }
       }
       console.log(body);
-      db.collection('teams').save(body, function(err, result) {
-        if (err) return console.log(err)
-        // console.log("added points to db");
-      });
-      console.log('added bht points for team ' + team);
+      //no point in saving to database if zero points
+      if(body.points != 0){
+        db.collection('teams').save(body, function(err, result) {
+          if (err) return console.log(err)
+          // console.log("added points to db");
+        });
+        console.log('added bht points for team ' + team);
+      }
     }
 
   });
