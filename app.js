@@ -40,7 +40,7 @@ app.post('/add', function(req, res) {
     db.collection('teams').save(req.body, function(err, result) {
       if (err) return console.log(err)
 
-      console.log('saved to database');
+      console.log('saved score to database');
       res.redirect('/updateScores');
     });
   }
@@ -51,13 +51,20 @@ app.post('/add', function(req, res) {
 
 app.post('/submitBHT', function(req, res) {
   console.log(req.body);
-  // db.collection('bht').save(req.body, function(err, result) {
-  //   if (err) return console.log(err)
-  //
-  //   console.log('Logged BHT submission');
-  //   res.redirect('/');
-  // });
-  console.log("logged bht submission");
+  if (req.body.teamname != "none" && req.body.fullname != ""){
+    db.collection('bht').save(req.body, function(err, result) {
+      if (err) return console.log(err)
+
+      console.log('saved bht to database');
+      // for testing - calculating bht on submit - move to schedule job after done
+      // calculateDayBHT()
+    });
+  }
+  else{
+    console.log("Bad input");
+  }
+  // console.log("logged bht submission");
+
   res.redirect('/');
 });
 
@@ -98,3 +105,71 @@ var job = schedule.scheduleJob({hour:23, minute: 59}, function(){
   //call function that calculates BHT points for the day
 
 });
+
+function calculateDayBHT() {
+  //should run each midnight and calculate BHT points for each team
+  //iterate through database for each team, ignore matching strings for names (case insensitive)
+  //for each team post a database entry in same format
+  var cursor = db.collection('bht').find().toArray(function(err, dbentries) {
+    // console.log(dbentries);
+    var date = new Date();
+    var currentMonth = date.getMonth()+1;
+    var currentDay = date.getDate();
+    var currentYear = date.getFullYear();
+    var teamlist = {}; //json with array of names for each team for that day
+    var teamcounts = {}; //number of unique names for each team for that day
+    console.log("current month: " + currentMonth + " current date: " + currentDay + " current year: " + currentYear);
+
+    //generate teamlist object
+    for (var element=0; element < dbentries.length; element++) {
+      if (!(dbentries[element].teamname in teamlist)){
+        teamlist[dbentries[element].teamname] = [];
+        teamcounts[dbentries[element].teamname] = 0;
+        console.log("Added team " + dbentries[element].teamname + " to teamlist");
+      }
+      var datestring = new Date(dbentries[element].date);
+      // console.log("date from bht entry: " + datestring.toString());
+
+      if (datestring.getMonth()+1 == currentMonth && datestring.getDate() == currentDay && datestring.getFullYear() == currentYear){
+        teamlist[dbentries[element].teamname].push(dbentries[element].fullname);
+        // console.log("date matched for " + dbentries[element].fullname + " entry");
+      }
+    }
+
+
+    //for each team in teamlist, check for duplicates and get count of unique names
+    for (var team in teamlist){
+      if(teamlist.hasOwnProperty(team)){
+        // console.log("team:" + team);
+        var uniquenames = [];
+        var prev = "";
+        var templist = [];
+        templist = teamlist[team];
+        lctemplist = [];
+
+        //make everything lowercase to make it easier
+        for (var j = 0; j<templist.length; j++) {
+          lctemplist.push(templist[j].toLowerCase());
+        }
+
+        lctemplist.sort();
+        // console.log(templist);
+        for ( var i = 0; i < lctemplist.length; i++ ) {
+            if ( lctemplist[i] !== prev ) {
+                uniquenames.push(lctemplist[i]);
+                prev = lctemplist[i];
+            }
+          }
+        // console.log(uniquenames);
+        teamcounts[team] = uniquenames.length;
+      }
+    }
+
+    console.log("teamlist:" + JSON.stringify(teamlist));
+    console.log("teamcounts:" + JSON.stringify(teamcounts));
+
+    //TODO: calculate points to give team based on number of unique names and post points to DB
+
+  });
+
+}

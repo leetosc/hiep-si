@@ -24,6 +24,12 @@ function validateBHT() {
     document.getElementById("errorText").innerHTML = '<font color="red">Please enter your name</font>';
     return false;
   }
+  var values = document.BHTform.fullname.value.split(' ').filter(function(v){return v!==''});
+  if (values.length == 1) {
+    document.getElementById("errorText").innerHTML = '<font color="red">Please enter your full name</font>';
+    return false;
+  }
+
   if(isNaN(document.BHTform.prayer.value) || isNaN(document.BHTform.communion.value) || isNaN(document.BHTform.sacrifice.value) || isNaN(document.BHTform.apostolicwork.value) || isNaN(document.BHTform.mass.value) || isNaN(document.BHTform.adoration.value) || isNaN(document.BHTform.readbible.value)) {
     document.getElementById("errorText").innerHTML = '<font color="red">Please double check values</font>';
     return false;

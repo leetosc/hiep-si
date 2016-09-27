@@ -55,7 +55,7 @@ function calculateTeams(payload){
 	for (var element=0; element < payload.length; element++) {
 		if (!(payload[element].name in teamlist)){
 			teamlist[payload[element].name] = {"pointsCurrentMonth":0, "pointsTotal":0};
-			// console.log("Added " + payload[element].name);
+			// console.log("Added team " + payload[element].name to teamlist);
 		}
 		if (payload[element].month == currentMonth){
 			teamlist[payload[element].name].pointsCurrentMonth += parseInt(payload[element].points);
@@ -104,7 +104,7 @@ function presetFormDate(){
 	var pagedate = new Date();
 
 	var pagemonth = pagedate.getMonth()+1;
-	var pageday = pagedate.getUTCDate();
-	var pageyear = pagedate.getUTCFullYear();
+	var pageday = pagedate.getDate();
+	var pageyear = pagedate.getFullYear();
 	document.getElementById("datefield").value=pagemonth + "/"+ pageday + "/" + pageyear;
 }
