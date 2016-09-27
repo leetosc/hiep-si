@@ -14,7 +14,7 @@
 
 function validateBHT() {
   // console.log("valdiating..");
-  // TODO: validate full name (first last)
+  // if kids are abusing then implement a check that the name matches a name on the roster for each team
 
   if(document.BHTform.teamname.value == "none") {
     document.getElementById("errorText").innerHTML = '<font color="red">Please select your team</font>';

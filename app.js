@@ -103,13 +103,14 @@ var job = schedule.scheduleJob({hour:23, minute: 59}, function(){
   var date = new Date();
   console.log(date.toString());
   //call function that calculates BHT points for the day
+  calculateDayBHT();
 
 });
 
 function calculateDayBHT() {
   //should run each midnight and calculate BHT points for each team
   //iterate through database for each team, ignore matching strings for names (case insensitive)
-  //for each team post a database entry in same format
+  //for each team post a database entry in same format as normal points
   var cursor = db.collection('bht').find().toArray(function(err, dbentries) {
     // console.log(dbentries);
     var date = new Date();
@@ -145,7 +146,7 @@ function calculateDayBHT() {
         var prev = "";
         var templist = [];
         templist = teamlist[team];
-        lctemplist = [];
+        lctemplist = [];//lowercase
 
         //make everything lowercase to make it easier
         for (var j = 0; j<templist.length; j++) {
@@ -155,11 +156,11 @@ function calculateDayBHT() {
         lctemplist.sort();
         // console.log(templist);
         for ( var i = 0; i < lctemplist.length; i++ ) {
-            if ( lctemplist[i] !== prev ) {
-                uniquenames.push(lctemplist[i]);
-                prev = lctemplist[i];
-            }
+          if ( lctemplist[i] !== prev ) {
+              uniquenames.push(lctemplist[i]);
+              prev = lctemplist[i];
           }
+        }
         // console.log(uniquenames);
         teamcounts[team] = uniquenames.length;
       }
@@ -168,7 +169,39 @@ function calculateDayBHT() {
     console.log("teamlist:" + JSON.stringify(teamlist));
     console.log("teamcounts:" + JSON.stringify(teamcounts));
 
-    //TODO: calculate points to give team based on number of unique names and post points to DB
+    // 0-3: 0 points, 4-5: 1 point, 6+: 2 points per day for team
+    var body = {};
+    for (var team in teamcounts){
+      // console.log("teamcounts[team]:" + teamcounts[team]);
+      if (teamcounts[team] < 4){
+        body = {
+          name: team,
+          points: 0,
+          month: currentMonth,
+          comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
+        }
+      } else if (teamcounts[team] >= 4 && teamcounts[team] <6){
+          body = {
+            name: team,
+            points: 1,
+            month: currentMonth,
+            comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
+        }
+      } else if (teamcounts[team] >= 6){
+          body = {
+            name: team,
+            points: 2,
+            month: currentMonth,
+            comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
+        }
+      }
+      console.log(body);
+      db.collection('teams').save(body, function(err, result) {
+        if (err) return console.log(err)
+        // console.log("added points to db");
+      });
+      console.log('added bht points for team ' + team);
+    }
 
   });
 
