@@ -114,11 +114,6 @@ new CronJob('00 59 23 * * *', function(){
   calculateDayBHT();
 }, null, true, 'America/Chicago');
 
-new CronJob('00 */2 * * * *', function(){
-  var date = new Date();
-  console.log("running test cron job..");
-  console.log(date.toString());
-}, null, true, 'America/Chicago');
 
 function calculateDayBHT() {
   //should run each midnight and calculate BHT points for each team
