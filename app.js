@@ -34,6 +34,11 @@ app.get('/', function(req,res) {
   });
 });
 
+//resources page
+app.get('/resources', function(req,res) {
+  res.sendFile(__dirname + '/public/resources.html');
+});
+
 //called on form submit
 app.post('/add', function(req, res) {
   console.log(req.body);

@@ -280,6 +280,11 @@ body {
 	opacity: 1.0 !important;
 }
 
+.nav .active a {
+    /*color: red;*/
+		background: rgb(59, 39, 18)!important;
+}
+
 a {
 	 color: yellow;
 }
