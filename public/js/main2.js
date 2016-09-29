@@ -61,6 +61,7 @@ function calculateTeams(payload){
 			teamlist[payload[element].name].pointsCurrentMonth += parseInt(payload[element].points);
 		}
 		teamlist[payload[element].name].pointsTotal += parseInt(payload[element].points);
+		delete payload[element]._id;
 		appendLog(JSON.stringify(payload[element]));
 
 	}
