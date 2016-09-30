@@ -120,11 +120,11 @@ body {
 	box-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
 
-.input-group {
+/*.input-group {
 	margin-bottom: 5px;
-}
+}*/
 
-#connectionStatus {
+/*#connectionStatus {
 	padding: 12px 0px 12px 15px;
 	font-size: 13px;
 	line-height: 21px;
@@ -134,7 +134,7 @@ body {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	max-width: 50%;
-}
+}*/
 
 #logContents {
 	padding: 0;
@@ -157,20 +157,20 @@ body {
 	}
 }
 
-#subscribeList {
+/*#subscribeList {
 	padding: 5px;
-}
+}*/
 
-#subscribeListLabel {
+/*#subscribeListLabel {
 	margin: 0;
 	padding: 5px;
 	text-align: center;
 	background-color: rgb(255,245,245);
 	color: rgb(185,74,72);
 	border-bottom: 1px solid #ddd;
-}
+}*/
 
-.subscribeListItem {
+/*.subscribeListItem {
 	padding: 3px 6px 4px 6px;
 	background-color: rgb(184,75,72);
 	border-radius: 5px;
@@ -178,26 +178,26 @@ body {
 	margin: 2px;
 	text-shadow: 1px 1px #444;
 	color: white;
-}
+}*/
 
-#subscribeButton {
+/*#subscribeButton {
 	background-color: white;
 	border: 1px solid rgb(185,74,72);
 	color: rgb(185,74,72);
-}
+}*/
 
-#subscribeButton:hover {
+/*#subscribeButton:hover {
 	background-color: rgb(185,74,72);
 	color: white;
-}
+}*/
 
-#subscriptionListContainer {
+/*#subscriptionListContainer {
 	background-color: #f5f5f5;
 	border: 1px solid #aaa;
 	box-shadow: 1px 1px 4px #aaa;
 	margin-top: 20px;
 	padding: 0;
-}
+}*/
 
 .logLine {
 	padding-left: 15px;
