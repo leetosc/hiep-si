@@ -4,44 +4,87 @@
   <meta charset="UTF-8">
   <title>DB HS Update Scores</title>
   <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link rel='shortcut icon' type='image/png' href='images/tnttfavicon.png'/>
 </head>
 
 <body class="bgBrown">
-  <h2>Update Scores</h2>
-  <br>
-  <form action="/add" method="POST">
-    <select name="name">
-      <option value="none">Select a Team</option>
-      <option value="phero">Phêrô</option>
-      <option value="anre">Anrê</option>
-      <option value="giacobetien">Giacôbê Tiền</option>
-      <option value="gioan">Gioan</option>
-      <option value="philiphe">Philiphê</option>
-      <option value="nathanaen">Nathanaen</option>
-      <option value="toma">Tôma</option>
-      <option value="mattheu">Matthêu</option>
-    </select>
-    <input type="number" placeholder="points" name="points">
-    <select id="monthselect" name="month">
-      <option value="1">January</option>
-      <option value="2">February</option>
-      <option value="3">March</option>
-      <option value="4">April</option>
-      <option value="5">May</option>
-      <option value="6">June</option>
-      <option value="7">July</option>
-      <option value="8">August</option>
-      <option value="9">September</option>
-      <option value="10">October</option>
-      <option value="11">November</option>
-      <option value="12">December</option>
-    </select>
-    <br>
-    <input type="text" placeholder="Comment (optional)" name="comment">
-    <br>
-    <button type="submit">Submit</button>
-  </form>
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapseNav"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="false"></span></button>
+          <a class="navbar-brand" href="#">Don Bosco Hiep Si</a>
+        </div>
+        <div class="collapse navbar-collapse" id="collapseNav">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/resources">Resources</a></li>
+            <li class="active"><a href="#">Update Scores</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading" id="UpdatePanelHeading">
+            <h3 class="panel-title">
+              <a id="UpdatePanelLink" data-toggle="collapse" data-target="#collapseUpdate">
+              Update Scores
+              </a>
+            </h3>
+          </div>
+          <div id="collapseUpdate" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <div class="container">
+                <div class="row">
+                  <form action="/add" method="POST">
+                    <select name="name">
+                      <option value="none">Select a Team</option>
+                      <option value="phero">Phêrô</option>
+                      <option value="anre">Anrê</option>
+                      <option value="giacobetien">Giacôbê Tiền</option>
+                      <option value="gioan">Gioan</option>
+                      <option value="philiphe">Philiphê</option>
+                      <option value="nathanaen">Nathanaen</option>
+                      <option value="toma">Tôma</option>
+                      <option value="mattheu">Matthêu</option>
+                    </select>
+                    <input type="number" placeholder="points" name="points">
+                    <select id="monthselect" name="month">
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <br>
+                    <input type="text" placeholder="Comment (optional)" name="comment">
+                    <br>
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
   <!-- <div>
     <h2>Update score</h2>
