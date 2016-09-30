@@ -6,3 +6,6 @@ Features:
   * Total points
 * BHT Submissions
   * Automatically gives points
+* Resources
+  * 10 DTN
+  * Thieu Nhi Tan Hanh Ca
