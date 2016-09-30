@@ -127,6 +127,7 @@ function calculateDayBHT() {
   var cursor = db.collection('bht').find().toArray(function(err, dbentries) {
     // console.log(dbentries);
     var date = new Date();
+    date.setDate(date.getDate()-1);
     var currentMonth = date.getMonth()+1;
     var currentDay = date.getDate();
     var currentYear = date.getFullYear();
