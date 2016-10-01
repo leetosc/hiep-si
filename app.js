@@ -5,6 +5,7 @@ var MongoClient = require('mongodb').MongoClient
 var fetch = require('node-fetch');
 var schedule = require('node-schedule');
 var CronJob = require('cron').CronJob;
+var http = require("http");
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -119,6 +120,10 @@ new CronJob('00 59 23 * * *', function(){
   calculateDayBHT();
 }, null, true, 'America/Chicago');
 
+//ping app every 5 minutes to prevent heroku from putting it to sleep
+setInterval(function(){
+  http.get("http://hiepsiaustin.herokuapp.com");
+}, 300000);
 
 function calculateDayBHT() {
   //should run each midnight and calculate BHT points for each team
