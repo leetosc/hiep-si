@@ -1,2 +1,6 @@
 Link announcements and upcoming events to external source
 Update page - feedback when submit
+
+function to get list of kids that did BHT and number of days they submitted
+
+
