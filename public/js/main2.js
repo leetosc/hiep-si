@@ -69,7 +69,7 @@ function calculateTeams(payload){
 
 	$(function () {
 		  //hardcode graph data labels for now..
-			var data = {
+			var currMonthData = {
 				labels: ["Phêrô", "Anrê", "Giacôbê Tiền", "Gioan", "Philiphê", "Nathanaen", "Tôma","Matthêu"],
 				datasets: [
 						{
@@ -79,7 +79,13 @@ function calculateTeams(payload){
 								highlightFill: "rgba(0,66,128,0.75)",
 								highlightStroke: "rgba(0,53,102,1)",
 								data: [teamlist.phero.pointsCurrentMonth, teamlist.anre.pointsCurrentMonth, teamlist.giacobetien.pointsCurrentMonth, teamlist.gioan.pointsCurrentMonth, teamlist.philiphe.pointsCurrentMonth, teamlist.nathanaen.pointsCurrentMonth, teamlist.toma.pointsCurrentMonth, teamlist.mattheu.pointsCurrentMonth]
-						},
+						}
+				]
+			};
+
+			var totalData = {
+				labels: ["Phêrô", "Anrê", "Giacôbê Tiền", "Gioan", "Philiphê", "Nathanaen", "Tôma","Matthêu"],
+				datasets: [
 						{
 								label: "Total",
 								fillColor: "rgba(151,187,205,0.5)",
@@ -95,8 +101,10 @@ function calculateTeams(payload){
 	    };
 
 	    // Get the context of the canvas element we want to select
-	    var ctx = document.getElementById("myChart").getContext('2d');
-	    var myBarChart = new Chart(ctx).Bar(data, option);
+	    var canvas1 = document.getElementById("currMonthChart").getContext('2d');
+			var canvas2 = document.getElementById("totalChart").getContext('2d');
+	    var monthChart = new Chart(canvas1).Bar(currMonthData, option);
+			var totalChart = new Chart(canvas2).Bar(totalData, option);
 	});
 
 }
