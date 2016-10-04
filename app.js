@@ -188,28 +188,28 @@ function calculateDayBHT() {
     console.log("teamlist:" + JSON.stringify(teamlist));
     console.log("teamcounts:" + JSON.stringify(teamcounts));
 
-    // 0-3: 0 points, 4-5: 1 point, 6+: 2 points per day for team
+    // 1-3: 1 points, 4-5: 2 point, 6+: 3 points per day for team
     var body = {};
     for (var team in teamcounts){
       // console.log("teamcounts[team]:" + teamcounts[team]);
-      if (teamcounts[team] < 4){
+      if (teamcounts[team] >1 && teamcounts[team] < 4){
         body = {
           name: team,
-          points: 0,
+          points: 1,
           month: currentMonth,
           comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
         }
       } else if (teamcounts[team] >= 4 && teamcounts[team] <6){
           body = {
             name: team,
-            points: 1,
+            points: 2,
             month: currentMonth,
             comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
         }
       } else if (teamcounts[team] >= 6){
           body = {
             name: team,
-            points: 2,
+            points: 3,
             month: currentMonth,
             comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
         }
