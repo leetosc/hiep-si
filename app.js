@@ -192,7 +192,7 @@ function calculateDayBHT() {
     var body = {};
     for (var team in teamcounts){
       // console.log("teamcounts[team]:" + teamcounts[team]);
-      if (teamcounts[team] >1 && teamcounts[team] < 4){
+      if (teamcounts[team] >=1 && teamcounts[team] < 4){
         body = {
           name: team,
           points: 1,
@@ -215,14 +215,12 @@ function calculateDayBHT() {
         }
       }
       console.log(body);
-      //no point in saving to database if zero points
-      if(body.points != 0){
-        db.collection('teams').save(body, function(err, result) {
-          if (err) return console.log(err)
-          // console.log("added points to db");
-        });
-        console.log('added bht points for team ' + team);
-      }
+
+      db.collection('teams').save(body, function(err, result) {
+        if (err) return console.log(err)
+        // console.log("added points to db");
+      });
+      console.log('added bht points for team ' + team);
     }
 
   });
