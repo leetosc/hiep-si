@@ -189,36 +189,29 @@ function calculateDayBHT() {
     console.log("teamcounts:" + JSON.stringify(teamcounts));
 
     // 1-3: 1 points, 4-5: 2 point, 6+: 3 points per day for team
-    var body = {};
+
     for (var team in teamcounts){
       // console.log("teamcounts[team]:" + teamcounts[team]);
+      var body = {
+        name: team,
+        points: 0,
+        month: currentMonth,
+        comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
+        };
       if (teamcounts[team] >1 && teamcounts[team] < 4){
-        body = {
-          name: team,
-          points: 1,
-          month: currentMonth,
-          comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
-        }
+        body.points = 1;
       } else if (teamcounts[team] >= 4 && teamcounts[team] <6){
-          body = {
-            name: team,
-            points: 2,
-            month: currentMonth,
-            comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
-        }
+          body.points = 2;
       } else if (teamcounts[team] >= 6){
-          body = {
-            name: team,
-            points: 3,
-            month: currentMonth,
-            comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
-        }
+          body.points = 3;
       }
-      console.log(body);
+      // console.log(body);
       //no point in saving to database if zero points
       if(body.points != 0){
         db.collection('teams').save(body, function(err, result) {
           if (err) return console.log(err)
+          console.log("saving bht score..")
+          console.log(body);
           // console.log("added points to db");
         });
         console.log('added bht points for team ' + team);
