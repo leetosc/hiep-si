@@ -206,13 +206,13 @@ function calculateDayBHT() {
           body.points = 3;
       }
 
-      // console.log(body);
+      console.log(body);
       //no point in saving to database if zero points
       if(body.points != 0){
         db.collection('teams').save(body, function(err, result) {
           if (err) return console.log(err)
           console.log("saving bht score..")
-          console.log(body);
+          // console.log(body);
           // console.log("added points to db");
         });
         console.log('added bht points for team ' + team);
