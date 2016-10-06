@@ -200,11 +200,13 @@ function calculateDayBHT() {
         };
       if (teamcounts[team] >1 && teamcounts[team] < 4){
         body.points = 1;
+
       } else if (teamcounts[team] >= 4 && teamcounts[team] <6){
           body.points = 2;
       } else if (teamcounts[team] >= 6){
           body.points = 3;
       }
+
       // console.log(body);
       //no point in saving to database if zero points
       if(body.points != 0){
@@ -216,6 +218,7 @@ function calculateDayBHT() {
         });
         console.log('added bht points for team ' + team);
       }
+
     }
 
   });
