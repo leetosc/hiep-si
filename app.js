@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
-var MongoClient = require('mongodb').MongoClient
+var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
 var fetch = require('node-fetch');
 var schedule = require('node-schedule');
 var CronJob = require('cron').CronJob;
@@ -12,7 +12,7 @@ app.set('port', (process.env.PORT || 5000));
 
 MongoClient.connect('mongodb://leeto:hiepsi@ds035836.mlab.com:35836/hiepsi', function(err, database) {
   // .. start the server
-  if (err) return console.log(err)
+  if (err) return console.log(err);
   db = database;
   //start server only if database is connected
   app.listen(app.get('port'), function() {
@@ -45,7 +45,7 @@ app.post('/add', function(req, res) {
   console.log(req.body);
   if (req.body.name != "none" && req.body.points != ""){
     db.collection('teams').save(req.body, function(err, result) {
-      if (err) return console.log(err)
+      if (err) return console.log(err);
 
       console.log('saved score to database');
       res.redirect('/updateScores');
@@ -60,7 +60,7 @@ app.post('/submitBHT', function(req, res) {
   console.log(req.body);
   if (req.body.teamname != "none" && req.body.fullname != ""){
     db.collection('bht').save(req.body, function(err, result) {
-      if (err) return console.log(err)
+      if (err) return console.log(err);
 
       console.log('saved bht to database');
       // for testing - calculating bht on submit - move to schedule job after done
@@ -85,8 +85,8 @@ app.get('/getData', function(req, res) {
 
 //page to update scores
 app.get('/updateScores', function(req, res){
-  res.sendFile(__dirname + '/public/update.html')
-})
+  res.sendFile(__dirname + '/public/update.html');
+});
 
 //not used
 app.put('/update', function(req, res){
@@ -100,10 +100,10 @@ app.put('/update', function(req, res){
     sort: {_id: -1},
     upsert: false
   }, function(err, result) {
-    if (err) return res.send(err)
+    if (err) return res.send(err);
     res.send(result);
-  })
-})
+  });
+});
 
 
 // var job = schedule.scheduleJob({hour:23, minute: 59}, function(){
@@ -210,8 +210,8 @@ function calculateDayBHT() {
       //no point in saving to database if zero points
       if(body.points != 0){
         db.collection('teams').save(body, function(err, result) {
-          if (err) return console.log(err)
-          console.log("saving bht score..")
+          if (err) return console.log(err);
+          console.log("saving bht score..");
           // console.log(body);
           // console.log("added points to db");
         });
