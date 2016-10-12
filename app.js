@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var fetch = require('node-fetch');
-var schedule = require('node-schedule');
 var CronJob = require('cron').CronJob;
 var http = require("http");
 
@@ -106,12 +105,6 @@ app.put('/update', function(req, res){
 });
 
 
-// var job = schedule.scheduleJob({hour:23, minute: 59}, function(){
-//   var date = new Date();
-//   console.log(date.toString());
-//   //call function that calculates BHT points for the day
-//   calculateDayBHT();
-// });
 
 new CronJob('00 59 23 * * *', function(){
   var date = new Date();
@@ -132,7 +125,7 @@ function calculateDayBHT() {
   var cursor = db.collection('bht').find().toArray(function(err, dbentries) {
     // console.log(dbentries);
     var date = new Date();
-    date.setDate(date.getDate()-1);
+    date.setDate(date.getDate()-1);//app runs on GMT time so midnight Austin time is one day before
     var currentMonth = date.getMonth()+1;
     var currentDay = date.getDate();
     var currentYear = date.getFullYear();
