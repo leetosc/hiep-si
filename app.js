@@ -104,6 +104,13 @@ app.put('/update', function(req, res){
   });
 });
 
+app.get('/consentForm', function(req, res) {
+  res.sendFile(__dirname + '/public/files/ConsentForm.pdf')
+})
+
+
+
+
 
 
 new CronJob('00 59 23 * * *', function(){
