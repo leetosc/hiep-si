@@ -105,8 +105,8 @@ app.put('/update', function(req, res){
 });
 
 app.get('/consentForm', function(req, res) {
-  res.sendFile(__dirname + '/public/files/ConsentForm.pdf')
-})
+  res.sendFile(__dirname + '/public/files/ConsentForm.pdf');
+});
 
 
 
@@ -120,10 +120,10 @@ new CronJob('00 59 23 * * *', function(){
   calculateDayBHT();
 }, null, true, 'America/Chicago');
 
-//ping app every 5 minutes to prevent heroku from putting it to sleep
+//ping app every 10 minutes to prevent heroku from putting it to sleep
 setInterval(function(){
   http.get("http://hiepsiaustin.herokuapp.com");
-}, 300000);
+}, 600000);
 
 function calculateDayBHT() {
   //should run each midnight and calculate BHT points for each team
