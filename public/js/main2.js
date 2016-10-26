@@ -21,6 +21,8 @@ function closePanel(type) {
 
 function startup(){
 	// appendLog("Started up");
+    window.sr = ScrollReveal();
+    sr.reveal('.animatedpanel',{reset:true, viewFactor:0.1, easing:'ease-in-out'});
 	$.get("getData", function(payload){
 		var tr;
         for (var i = 0; i < payload.length; i++) {
