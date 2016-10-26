@@ -30,7 +30,8 @@ function startup(){
 var logEntries = 0;
 function appendLog(msg) {
 	logEntries++;
-	msg = "<div id='logLine-"+logEntries+"' class='logLine'><span class='logTime'>(" + ((new Date()).toISOString().split("T"))[1].substr(0, 12) + ")</span><span class='logMessage'>" + msg + "</span></div>";
+	msg = "<div id='logLine-"+logEntries+"' class='logLine'><span class='logMessage'>" + msg + "</span></div>";
+//    msg = "<div id='logLine-"+logEntries+"' class='logLine'><span class='logTime'>(" + ((new Date()).toISOString().split("T"))[1].substr(0, 12) + ")</span><span class='logMessage'>" + msg + "</span></div>";
 	$("#logContents").append(msg + "\n");
 	$("#logSize").html(logEntries);
 //	if ($("#stickyLog").prop("checked")) {
