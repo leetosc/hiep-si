@@ -33,9 +33,10 @@ function appendLog(msg) {
 	msg = "<div id='logLine-"+logEntries+"' class='logLine'><span class='logTime'>(" + ((new Date()).toISOString().split("T"))[1].substr(0, 12) + ")</span><span class='logMessage'>" + msg + "</span></div>";
 	$("#logContents").append(msg + "\n");
 	$("#logSize").html(logEntries);
-	if ($("#stickyLog").prop("checked")) {
-		$("#logContents").prop("scrollTop", $("#logContents").prop("scrollHeight") - $("#logContents").height());
-	}
+//	if ($("#stickyLog").prop("checked")) {
+//		$("#logContents").prop("scrollTop", $("#logContents").prop("scrollHeight") - $("#logContents").height());
+//	}
+    $("#logContents").prop("scrollTop", $("#logContents").prop("scrollHeight") - $("#logContents").height());
 }
 
 //not currently used
