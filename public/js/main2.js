@@ -22,7 +22,17 @@ function closePanel(type) {
 function startup(){
 	// appendLog("Started up");
 	$.get("getData", function(payload){
-			calculateTeams(payload);
+		var tr;
+        for (var i = 0; i < payload.length; i++) {
+            tr = $('<tr/>');
+            tr.append("<td>" + payload[i].name + "</td>");
+            tr.append("<td>" + payload[i].points + "</td>");
+            tr.append("<td>" + getMonthName(payload[i].month) + "</td>");
+            tr.append("<td>" + payload[i].comment + "</td>");
+            $('#logContentsTable').append(tr);
+        }
+                
+        calculateTeams(payload);
 	});
 
 }
@@ -47,6 +57,13 @@ function clearLog() {
 	$("#logSize").html("0");
 }
 
+function getMonthName(number) {
+    var names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return names[number-1];
+}
+
+
+
 // Takes payload and calculates points for current month and total and draws graph
 function calculateTeams(payload){
 	var currentMonth = new Date().getMonth()+1;
@@ -64,7 +81,7 @@ function calculateTeams(payload){
 		}
 		teamlist[payload[element].name].pointsTotal += parseInt(payload[element].points);
 		delete payload[element]._id;
-		appendLog(JSON.stringify(payload[element]));
+//		appendLog(JSON.stringify(payload[element]));
 
 	}
 	console.log("teamlist:" + JSON.stringify(teamlist));
