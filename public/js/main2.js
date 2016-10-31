@@ -18,6 +18,7 @@ function closePanel(type) {
 	$("#collapse"+(type.charAt(0).toUpperCase() + type.substring(1))).collapse("hide");
 }
 
+var logEntries = 0;
 
 function startup(){
 	// appendLog("Started up");
@@ -33,14 +34,15 @@ function startup(){
             tr.append("<td>" + getMonthName(payload[i].month) + "</td>");
             tr.append("<td>" + payload[i].comment + "</td>");
             $('#logContentsTable').append(tr);
+						logEntries++;
         }
-                
+				$("#logSize").html(logEntries);
         calculateTeams(payload);
 	});
 
 }
 
-var logEntries = 0;
+//not used for raw json anymore - have table instead
 function appendLog(msg) {
 	logEntries++;
 	msg = "<div id='logLine-"+logEntries+"' class='logLine'><span class='logMessage'>" + msg + "</span></div>";
