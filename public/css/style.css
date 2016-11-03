@@ -291,6 +291,16 @@ body {
     color: #FFFFFF!important;
 }
 
+.tab-content {
+  padding: 20px;
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+
 /*a {
 	 color: yellow;
 }*/
