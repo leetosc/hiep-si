@@ -104,6 +104,7 @@ app.put('/update', function(req, res){
   });
 });
 
+//generic consent form for events
 app.get('/consentForm', function(req, res) {
   res.sendFile(__dirname + '/public/files/ConsentForm.pdf');
 });
