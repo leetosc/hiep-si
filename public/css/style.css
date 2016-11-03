@@ -282,7 +282,13 @@ body {
 
 .nav .active a {
     /*color: red;*/
-		background: rgb(59, 39, 18)!important;
+/*	background: rgb(59, 39, 18)!important;*/
+    background: rgb(59, 39, 18);
+}
+
+.nav-set1 .nav .active a {
+    background: rgb(199, 131, 58)!important;
+    color: #FFFFFF!important;
 }
 
 /*a {

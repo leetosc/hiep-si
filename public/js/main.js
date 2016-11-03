@@ -40,3 +40,5 @@ function validateBHT() {
 function clearErrorText(){
   document.getElementById("errorText").innerHTML = '';
 }
+
+$('#videotabs').tabCollapse();
