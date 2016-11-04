@@ -82,6 +82,97 @@ app.get('/getData', function(req, res) {
   });
 });
 
+// Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+  console.log("ERROR: " + reason);
+  res.status(code || 500).json({"error": message});
+}
+
+/*
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  TODO: APIs currently don't handle year yet, and no error handling
+  should work for rest of 2016 though
+*/
+
+
+// API to get list of BHT submissions for a kid since a given month
+// returns json array
+//Example: hiepsiaustin.herokuapp.com/api/getkidmonthbht/An%20Dinh/11
+
+//db.bht.find({$and:[{date:{$gte: '11/1/2016'}},{fullname:"<kid name>"}]})
+app.get('/api/getkidmonthbht/:fullname/:month/:year', function(req, res) {
+  if (req.params.month > 12){
+    res.status(500).send("invalid month");
+    return
+  }
+  
+  var monthDate = req.params.month + "/1/" + req.params.year;
+  var kidname = req.params.fullname;
+
+  console.log("monthdate:" + monthDate);
+  console.log("kidname: " + kidname);
+
+  var cursor = db.collection('bht').find({$and:[{date:{$gte: monthDate}},{fullname:kidname}]}).toArray(function(err, results) {
+    if (err){
+      handleError(res, err.message, "Failed to get kid or month");
+    } else {
+      console.log(results);
+      console.log("count:"+ results.length);
+      res.send(results);
+    }
+    
+  });
+});
+
+// gets list of all BHT submissions since given month
+// returns json array
+// hiepsiaustin.herokuapp.com/api/getmonthbht/11
+
+app.get('/api/getmonthbht/:month/:year', function(req, res) {
+  if (req.params.month > 12){
+    res.status(500).send("invalid month");
+    return
+  }
+  
+  var monthDate = req.params.month + "/1/" + req.params.year;
+
+  console.log("monthdate:" + monthDate);
+
+  var cursor = db.collection('bht').find({date:{$gte: monthDate}}).toArray(function(err, results) {
+    if (err){
+      handleError(res, err.message, "Failed to get bht for month");
+    } else {
+      console.log(results);
+      console.log("count:"+ results.length);
+      res.send(results);
+    }
+    
+  });
+});
+
+// Gets all BHT submitted by given kid, returns json array
+// hiepsiaustin.herokuapp.com/api/getkidbht/An%20Dinh
+
+app.get('/api/getkidbht/:fullname', function(req, res) {
+  var kidname = req.params.fullname;
+
+  console.log("getting bht for " + kidname);
+
+  var cursor = db.collection('bht').find({fullname:kidname}).toArray(function(err, results) {
+    if (err){
+      handleError(res, err.message, "Failed to get kid");
+    } else {
+      console.log(results);
+      console.log("count:"+ results.length);
+      res.send(results);
+    }
+    
+  });
+});
+
+
+//-------- end db query api -----------
+
 //page to update scores
 app.get('/updateScores', function(req, res){
   res.sendFile(__dirname + '/public/update.html');
@@ -111,6 +202,15 @@ app.get('/consentForm', function(req, res) {
 
 
 
+
+
+
+
+
+// Should be the last route
+app.get('*', function(req, res){
+  res.send('Something went wrong, please try again.', 404);
+});
 
 
 

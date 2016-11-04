@@ -5,6 +5,11 @@ pw: hiepsi
 donboscohiepsi@gmail.com
 hiepsi123
 
+db.bht.find({$and:[{date:{$gte: '11/1/2016'}},{fullname:"<kid name>"}]})
+
+figure out what this does
+db.bht.aggregate([{$group:{_id:{year:{$year: new Date("$date")},month:{$month: new Date("$date")},day:{$dayOfMonth: new Date("$date")}}}}])
+
 Teams:
 phero
 anre
