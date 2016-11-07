@@ -7,6 +7,7 @@ Current Features:
   * Total points
 * BHT Submissions
   * Automatically gives points at end of each day
+  * Get counts
 * Resources
   * 10 DTN
   * Thieu Nhi Tan Hanh Ca
