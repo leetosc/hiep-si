@@ -31,17 +31,16 @@ function getBHTforMonth(){
 
     //filter out, get for specific team
     for (var i = 0; i<payload.length;i++){
-      if (payload[i].teamname == team | team == "all"){
+      if ((payload[i].teamname == team | team == "all") & new Date(payload[i].date).getMonth()+1 == month){
         if (!(payload[i].fullname in kidcount)){
           kidcount[payload[i].fullname] = 1;
-          console.log("added " + payload[i].fullname + " to kidcount");
+          // console.log("added " + payload[i].fullname + " to kidcount");
         } else {
           kidcount[payload[i].fullname]++;
-          console.log("incremented count for " + payload[i].fullname);
+          // console.log("incremented count for " + payload[i].fullname);
         }
         
       }
-      
       
     }
     console.log("kidcount: " + JSON.stringify(kidcount));
@@ -61,7 +60,6 @@ function getBHTforMonth(){
         $('#SummaryTable').append(tr);
     }
 
-
     // Raw bht table
     $("#bhtContentsTable tr").remove();
     //fill in table headers
@@ -74,15 +72,14 @@ function getBHTforMonth(){
     //fill in table
     for (var i = 0; i < payload.length; i++) {
         var entrymonth = new Date(payload[i].date).getMonth()+1;
-        tr = $('<tr/>');
-        tr.append("<td>" + payload[i].teamname + "</td>");
-        tr.append("<td>" + payload[i].fullname + "</td>");
-        tr.append("<td>" + payload[i].date + "</td>");
-        // tr.append("<td>" + payload[i].comment + "</td>");
-        $('#bhtContentsTable').append(tr);
-        // logEntries++;
+        if(entrymonth == month){
+          tr = $('<tr/>');
+          tr.append("<td>" + payload[i].teamname + "</td>");
+          tr.append("<td>" + payload[i].fullname + "</td>");
+          tr.append("<td>" + payload[i].date + "</td>");
+          $('#bhtContentsTable').append(tr);
+        }
     }
-    // $("#logSize").html(logEntries);
   });
 
 }
