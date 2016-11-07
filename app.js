@@ -47,7 +47,7 @@ app.post('/add', function(req, res) {
       if (err) return console.log(err);
 
       console.log('saved score to database');
-      res.redirect('/updateScores');
+      res.redirect('/htpage');
     });
   }
   else{
@@ -116,8 +116,8 @@ app.get('/api/getkidmonthbht/:fullname/:month/:year', function(req, res) {
     if (err){
       handleError(res, err.message, "Failed to get kid or month");
     } else {
-      console.log(results);
-      console.log("count:"+ results.length);
+      // console.log(results);
+      console.log("got bht, count:"+ results.length);
       res.send(results);
     }
     
@@ -142,8 +142,8 @@ app.get('/api/getmonthbht/:month/:year', function(req, res) {
     if (err){
       handleError(res, err.message, "Failed to get bht for month");
     } else {
-      console.log(results);
-      console.log("count:"+ results.length);
+      // console.log(results);
+      console.log("got bht, count:"+ results.length);
       res.send(results);
     }
     
@@ -163,8 +163,8 @@ app.get('/api/getkidbht/:fullname', function(req, res) {
     if (err){
       handleError(res, err.message, "Failed to get kid");
     } else {
-      console.log(results);
-      console.log("count:"+ results.length);
+      // console.log(results);
+      console.log("got bht, count:"+ results.length);
       res.send(results);
     }
     
@@ -175,7 +175,7 @@ app.get('/api/getkidbht/:fullname', function(req, res) {
 //-------- end db query api -----------
 
 //page to update scores
-app.get('/updateScores', function(req, res){
+app.get('/htpage', function(req, res){
   res.sendFile(__dirname + '/public/update.html');
 });
 
