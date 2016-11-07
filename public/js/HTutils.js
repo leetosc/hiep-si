@@ -27,12 +27,42 @@ function getBHTforMonth(){
     var tr;
     var kidcount = {};
     // console.log(payload);
-    console.log(JSON.stringify(payload));
+    // console.log(JSON.stringify(payload));
 
     //filter out, get for specific team
-    
-    
+    for (var i = 0; i<payload.length;i++){
+      if (payload[i].teamname == team | team == "all"){
+        if (!(payload[i].fullname in kidcount)){
+          kidcount[payload[i].fullname] = 1;
+          console.log("added " + payload[i].fullname + " to kidcount");
+        } else {
+          kidcount[payload[i].fullname]++;
+          console.log("incremented count for " + payload[i].fullname);
+        }
+        
+      }
+      
+      
+    }
+    console.log("kidcount: " + JSON.stringify(kidcount));
+    // Summary table
+    $("#SummaryTable tr").remove();
+    //fill in table headers
+    tr = $('<tr/>');
+    tr.append("<th>" + "Name" + "</th>");
+    tr.append("<th>" + "Count" + "</th>");
+    $('#SummaryTable').append(tr);
 
+    //fill in table
+    for (var key in kidcount) {
+        tr = $('<tr/>');
+        tr.append("<td>" + key + "</td>");
+        tr.append("<td>" + kidcount[key] + "</td>");
+        $('#SummaryTable').append(tr);
+    }
+
+
+    // Raw bht table
     $("#bhtContentsTable tr").remove();
     //fill in table headers
     tr = $('<tr/>');
