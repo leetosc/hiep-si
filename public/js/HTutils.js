@@ -23,24 +23,34 @@ function getBHTforMonth(){
 
   
 
-  $.get("api/getmonthbht/11/2016", function(payload){
+  $.get(geturl, function(payload){
     var tr;
     var kidcount = {};
-    console.log(payload);
+    // console.log(payload);
+    console.log(JSON.stringify(payload));
 
+    //filter out, get for specific team
+    
+    
 
-    
-    
-    //TODO: fill the table with the selected bht counts
-    
+    $("#bhtContentsTable tr").remove();
+    //fill in table headers
+    tr = $('<tr/>');
+    tr.append("<th>" + "Team Name" + "</th>");
+    tr.append("<th>" + "Kid Name" + "</th>");
+    tr.append("<th>" + "Date" + "</th>");
+    $('#bhtContentsTable').append(tr);
+
+    //fill in table
     for (var i = 0; i < payload.length; i++) {
+        var entrymonth = new Date(payload[i].date).getMonth()+1;
         tr = $('<tr/>');
-        tr.append("<td>" + payload[i].name + "</td>");
-        tr.append("<td>" + payload[i].points + "</td>");
-        tr.append("<td>" + getMonthName(payload[i].month) + "</td>");
-        tr.append("<td>" + payload[i].comment + "</td>");
+        tr.append("<td>" + payload[i].teamname + "</td>");
+        tr.append("<td>" + payload[i].fullname + "</td>");
+        tr.append("<td>" + payload[i].date + "</td>");
+        // tr.append("<td>" + payload[i].comment + "</td>");
         $('#bhtContentsTable').append(tr);
-        logEntries++;
+        // logEntries++;
     }
     // $("#logSize").html(logEntries);
   });

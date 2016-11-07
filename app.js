@@ -150,6 +150,7 @@ app.get('/api/getmonthbht/:month/:year', function(req, res) {
   });
 });
 
+
 // Gets all BHT submitted by given kid, returns json array
 // hiepsiaustin.herokuapp.com/api/getkidbht/An%20Dinh
 
@@ -209,7 +210,8 @@ app.get('/consentForm', function(req, res) {
 
 // Should be the last route
 app.get('*', function(req, res){
-  res.send('Something went wrong, please try again.', 404);
+  // res.send('Something went wrong, please try again.', 404);
+  res.status(404).send("Something went wrong, please try again.");
 });
 
 
