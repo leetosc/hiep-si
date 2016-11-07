@@ -84,6 +84,79 @@
       </div>
     </div>
 
+      <div class="row">
+				<div class="col-xs-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading" id="bhtpanelheading">
+							<h3 class="panel-title">
+								<a id="bhtPanelLink" data-toggle="collapse" data-target="#collapsebht">Get BHT Counts</a>
+								
+							</h3>
+						</div>
+						<div id="collapsebht" class="panel-collapse">
+							<div class="panel-body">
+                <div style="" class="pre-scrollable" id="bhtContents">
+									
+                  <div class="container">
+                    <div class="row">
+                      <form name="getbhtform">
+                        <select name="name" id="bhtteamselect">
+                          <option value="all">All Teams</option>
+                          <option value="phero">Phêrô</option>
+                          <option value="anre">Anrê</option>
+                          <option value="giacobetien">Giacôbê Tiền</option>
+                          <option value="gioan">Gioan</option>
+                          <option value="philiphe">Philiphê</option>
+                          <option value="nathanaen">Nathanaen</option>
+                          <option value="toma">Tôma</option>
+                          <option value="mattheu">Matthêu</option>
+                        </select>
+                        <select id="bhtmonthselect" name="month">
+                          <option value="1">January</option>
+                          <option value="2">February</option>
+                          <option value="3">March</option>
+                          <option value="4">April</option>
+                          <option value="5">May</option>
+                          <option value="6">June</option>
+                          <option value="7">July</option>
+                          <option value="8">August</option>
+                          <option value="9">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                        </select>
+                        <select id="bhtyearselect" name="year">
+                          <option value="2016">2016</option>
+                          <option value="2017">2017</option>
+                        </select>
+                        <br>
+                        <button type="submit" id="bhtsubmit" onclick="getBHTforMonth()">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                  
+                  <table class="table table-striped table-condensed table-hover table-responsive " id="bhtContentsTable">
+											<!--<thead>
+											<tr>
+												<th>Team Name</th>
+												<th>Points</th>
+												<th>Month</th>
+												<th>Comment</th>
+											</tr>
+											</thead>-->
+									</table>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+      </div>
+
+
+
+    </div>
+
 
 
   <!-- <div>
@@ -91,21 +164,10 @@
     <button id="update">Update Score</button>
   </div> -->
 
-  <!-- Set month dropdown to current month -->
-  <script>
-  var pagedate = new Date();
-  function setSelectedIndex(s, i)  {
-    s.options[i-1].selected = true;
-    return;
-  }
-  var pagemonth = pagedate.getMonth()+1;
-  setSelectedIndex(document.getElementById("monthselect"),pagemonth);
-  </script>
-
 
 
   <script src="js/utils/jquery.min.js"></script>
   <script src="js/utils/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/HTutils.js"></script>
 </body>
 </html>

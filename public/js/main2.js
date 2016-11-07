@@ -27,17 +27,17 @@ function startup(){
 //    sr.reveal('.animatedpanel',{reset:true, viewFactor:0.1, easing:'ease-in-out'});
 	$.get("getData", function(payload){
 		var tr;
-        for (var i = 0; i < payload.length; i++) {
-            tr = $('<tr/>');
-            tr.append("<td>" + payload[i].name + "</td>");
-            tr.append("<td>" + payload[i].points + "</td>");
-            tr.append("<td>" + getMonthName(payload[i].month) + "</td>");
-            tr.append("<td>" + payload[i].comment + "</td>");
-            $('#logContentsTable').append(tr);
-						logEntries++;
-        }
-				$("#logSize").html(logEntries);
-        calculateTeams(payload);
+		for (var i = 0; i < payload.length; i++) {
+				tr = $('<tr/>');
+				tr.append("<td>" + payload[i].name + "</td>");
+				tr.append("<td>" + payload[i].points + "</td>");
+				tr.append("<td>" + getMonthName(payload[i].month) + "</td>");
+				tr.append("<td>" + payload[i].comment + "</td>");
+				$('#logContentsTable').append(tr);
+				logEntries++;
+		}
+		$("#logSize").html(logEntries);
+		calculateTeams(payload);
 	});
 
 }
