@@ -20,7 +20,7 @@ function getBHTforMonth(){
   var team = document.getbhtform.name.value;
   console.log("month:" + month + " team:" + team);
   var geturl = "api/getmonthbht/" + month + "/" + year;
-
+//should change geturl to get all bht since filtering is done here anwyays
   
 
   $.get(geturl, function(payload){
@@ -31,7 +31,7 @@ function getBHTforMonth(){
 
     //filter out, get for specific team
     for (var i = 0; i<payload.length;i++){
-      if ((payload[i].teamname == team | team == "all") & new Date(payload[i].date).getMonth()+1 == month){
+      if ((payload[i].teamname == team || team == "all") && new Date(payload[i].date).getMonth()+1 == month && new Date(payload[i].date).getFullYear() == year){
         if (!(payload[i].fullname in kidcount)){
           kidcount[payload[i].fullname] = 1;
           // console.log("added " + payload[i].fullname + " to kidcount");
