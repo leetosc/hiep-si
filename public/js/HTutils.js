@@ -33,10 +33,10 @@ function getBHTforMonth(){
     for (var i = 0; i<payload.length;i++){
       if ((payload[i].teamname == team | team == "all") & new Date(payload[i].date).getMonth()+1 == month){
         if (!(payload[i].fullname in kidcount)){
-          kidcount[payload[i].fullname] = 1;
+          kidcount[payload[i].fullname] = [1, payload[i].teamname];
           // console.log("added " + payload[i].fullname + " to kidcount");
         } else {
-          kidcount[payload[i].fullname]++;
+          kidcount[payload[i].fullname][0]++;
           // console.log("incremented count for " + payload[i].fullname);
         }
         
@@ -49,6 +49,7 @@ function getBHTforMonth(){
     //fill in table headers
     tr = $('<tr/>');
     tr.append("<th>" + "Name" + "</th>");
+    tr.append("<th>" + "Team" + "</th>");
     tr.append("<th>" + "Count" + "</th>");
     $('#SummaryTable').append(tr);
 
@@ -56,7 +57,8 @@ function getBHTforMonth(){
     for (var key in kidcount) {
         tr = $('<tr/>');
         tr.append("<td>" + key + "</td>");
-        tr.append("<td>" + kidcount[key] + "</td>");
+        tr.append("<td>" + kidcount[key][1] + "</td>"); //teamname
+        tr.append("<td>" + kidcount[key][0] + "</td>"); //count
         $('#SummaryTable').append(tr);
     }
 
