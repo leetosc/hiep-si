@@ -201,6 +201,16 @@ app.get('/consentForm', function(req, res) {
   res.sendFile(__dirname + '/public/files/ConsentForm.pdf');
 });
 
+//DCYC letter
+app.get('/DCYCLetter', function(req, res) {
+  res.sendFile(__dirname + '/public/files/DCYC2017Letter.pdf');
+});
+
+//DCYC form
+app.get('/DCYCForm', function(req, res) {
+  res.sendFile(__dirname + '/public/files/DCYC2017Registration.pdf');
+});
+
 
 
 
