@@ -27,7 +27,7 @@ function startup(){
 //    sr.reveal('.animatedpanel',{reset:true, viewFactor:0.1, easing:'ease-in-out'});
 	$.get("getData", function(payload){
 		var tr;
-		for (var i = 0; i < payload.length; i++) {
+		for (var i = payload.length-1; i >= 0; i--) {
 				tr = $('<tr/>');
 				tr.append("<td>" + payload[i].name + "</td>");
 				tr.append("<td>" + payload[i].points + "</td>");
