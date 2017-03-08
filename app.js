@@ -303,6 +303,8 @@ function calculateDayBHT() {
 
     // 1-3: 1 points, 4-5: 2 point, 6+: 3 points per day for team
 
+    //3-8-17: during Lent BHT worth triple points
+
     for (var team in teamcounts){
       // console.log("teamcounts[team]:" + teamcounts[team]);
       var body = {
@@ -312,11 +314,11 @@ function calculateDayBHT() {
         comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
         };
       if (teamcounts[team] >=1 && teamcounts[team] < 4){
-        body.points = 1;
+        body.points = 3;
       } else if (teamcounts[team] >= 4 && teamcounts[team] <6){
-          body.points = 2;
+          body.points = 6;
       } else if (teamcounts[team] >= 6){
-          body.points = 3;
+          body.points = 9;
       }
 
       console.log(body);
