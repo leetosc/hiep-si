@@ -211,7 +211,19 @@ app.get('/DCYCForm', function(req, res) {
   res.sendFile(__dirname + '/public/files/DCYC2017Registration.pdf');
 });
 
-
+//DHNH Forms
+app.get('/DHNHForm1', function(req, res) {
+  res.sendFile(__dirname + '/public/files/Form-1-Don-Ghi-Danh-DHNH-2017.pdf');
+});
+app.get('/DHNHForm2', function(req, res) {
+  res.sendFile(__dirname + '/public/files/Form-2-Personal-Health.pdf');
+});
+app.get('/DHNHForm3', function(req, res) {
+  res.sendFile(__dirname + '/public/files/Form-3-VAP.pdf');
+});
+app.get('/DHNHLetter', function(req, res) {
+  res.sendFile(__dirname + '/public/files/Letter-Thong-Bao-DHNH-2017.pdf');
+});
 
 
 
