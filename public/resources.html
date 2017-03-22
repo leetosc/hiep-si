@@ -9,6 +9,7 @@
 		<meta name="author" content="">
         <script src="js/utils/scrollreveal.min.js"></script>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/style.css" rel="stylesheet">
 		<link rel='shortcut icon' type='image/png' href='images/tnttfavicon.png'/>
 
@@ -41,13 +42,60 @@
           </div>
 					<div class="collapse navbar-collapse" id="collapseNav">
 	          <ul class="nav navbar-nav">
-							<li><a href="/">Home</a></li>
-							<li class="active"><a href="#">Resources</a></li>
+							<li><a href="/"><i class="glyphicon glyphicon-home" aria-hidden="true"> </i> Home</a></li>
+							<li class="active"><a href="#"><i class="glyphicon glyphicon-book" aria-hidden="true"> </i> Resources</a></li>
 	          </ul>
 					</div>
         </div>
 			</div>
 		</div>
+		
+		 <div id="wrapper">
+        
+    
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav" style="margin-left:0;">
+                <li class="sidebar-brand">
+                    
+									<a href="#menu-toggle"  id="menu-toggle" style="margin-top:20px;float:right;" > <i class="glyphicon glyphicon-menu-hamburger " style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"></i> 
+                    
+                </li>
+                <li>
+                    <a href="#teamNames"><i class="glyphicon glyphicon-user " aria-hidden="true"> </i> <span style="margin-left:10px;">Teams</span>  </a>
+                </li>
+                <li>
+                    <a href="#ruocLeThiengLieng"> <i class="glyphicon glyphicon-circle-arrow-down " aria-hidden="true"> </i> <span style="margin-left:10px;"> Kinh RLTL</span> </a>
+                </li>
+                <li>
+                    <a href="#HiepSiCaPanelLink"> <i class="glyphicon glyphicon-music" aria-hidden="true"> </i> <span style="margin-left:10px;"> Hiệp Sĩ Ca</span> </a>
+                </li>
+                <li>
+                    <a href="#beatitudes"> <i class="glyphicon glyphicon-check" aria-hidden="true"> </i> <span style="margin-left:10px;"> 8 Beatitudes</span> </a>
+                </li>
+                <li>
+                    <a href="#10DTNpanelLink"><i class="glyphicon glyphicon-list-alt " aria-hidden="true"> </i> <span style="margin-left:10px;">10 ĐTN TNTT</span> </a>
+                </li>
+                <li>
+                    <a href="#TNTHCPanelLink"> <i class="glyphicon glyphicon-music" aria-hidden="true"> </i> <span style="margin-left:10px;"> TN Tân Hành Ca</span> </a>
+                </li>
+								<li>
+                    <a href="#QCPanelLink"> <i class="glyphicon glyphicon-flag" aria-hidden="true"> </i> <span style="margin-left:10px;"> Quốc Ca Việt Nam</span> </a>
+                </li>
+								<li>
+                    <a href="#song1"> <i class="glyphicon glyphicon-music" aria-hidden="true"> </i> <span style="margin-left:10px;"> Sinh Hoạt Songs</span> </a>
+                </li>
+								<li>
+                    <a href="#song2"> <i class="glyphicon glyphicon-fire" aria-hidden="true"> </i> <span style="margin-left:10px;"> Lửa Thiêng Songs</span> </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+		 </div>
+
+
+		
 		<div class="container">
 
 			<div class="row animatedpanel">
@@ -56,7 +104,7 @@
 						<div class="panel-heading" id="teamNamesHeading">
 							<h3 class="panel-title">
 								<a id="teamNames" data-toggle="collapse" data-target="#collapseTeamNames" href="#collapseTeamNames" onclick="return false;">
-								Team Names and Responses
+								<i class="glyphicon glyphicon-user " aria-hidden="true"> </i> Team Names and Responses
 								</a>
 							</h3>
 						</div>
@@ -86,7 +134,7 @@
 					<div class="panel-heading" id="RLTLHeading">
 						<h3 class="panel-title">
 							<a id="ruocLeThiengLieng" data-toggle="collapse" data-target="#collapseRLTL" href="#collapseRLTL" onclick="return false;">
-							Kinh Rước Lễ Thiêng Liêng
+							 <i class="glyphicon glyphicon-circle-arrow-down " aria-hidden="true"> </i> Kinh Rước Lễ Thiêng Liêng
 							</a>
 						</h3>
 					</div>
@@ -119,7 +167,7 @@
 						<div class="panel-heading" id="HiepSiCaHeading">
 							<h3 class="panel-title">
 								<a id="HiepSiCaPanelLink" data-toggle="collapse" data-target="#collapseHiepSiCa" href="#collapseHiepSiCa" onclick="return false;">
-								Hiệp Sĩ Ca
+								<i class="glyphicon glyphicon-music" aria-hidden="true"> </i> Hiệp Sĩ Ca
 								</a>
 							</h3>
 						</div>
@@ -168,7 +216,7 @@
 						<div class="panel-heading" id="beatitudesHeading">
 							<h3 class="panel-title">
 								<a id="beatitudes" data-toggle="collapse" data-target="#collapseBeatitudes" href="#collapseBeatitudes" onclick="return false;">
-								The Eight Beatitudes
+								<i class="glyphicon glyphicon-check" aria-hidden="true"> </i> Eight Beatitudes
 								</a>
 							</h3>
 						</div>
@@ -200,7 +248,7 @@
 						<div class="panel-heading" id="10DTNheading">
 							<h3 class="panel-title">
 								<a id="10DTNpanelLink" data-toggle="collapse" data-target="#collapse10DTN" href="#collapse10DTN" onclick="return false;">
-								10 Điều Tâm Niệm TNTT
+								<i class="glyphicon glyphicon-list-alt " aria-hidden="true"> </i> 10 Điều Tâm Niệm TNTT
 								</a>
 							</h3>
 						</div>
@@ -258,7 +306,7 @@
 						<div class="panel-heading" id="TNTHCPanelHeading">
 							<h3 class="panel-title">
 								<a id="TNTHCPanelLink" data-toggle="collapse" data-target="#collapseTNTHC" href="#collapseTNTHC" onclick="return false;">
-								Thiếu Nhi Tân Hành Ca
+								<i class="glyphicon glyphicon-music" aria-hidden="true"> </i> Thiếu Nhi Tân Hành Ca
 								</a>
 							</h3>
 						</div>
@@ -291,7 +339,7 @@
 						<div class="panel-heading" id="QCPanelHeading">
 							<h3 class="panel-title">
 								<a id="QCPanelLink" data-toggle="collapse" data-target="#collapseQC" href="#collapseQC" onclick="return false;">
-								Quốc Ca Việt Nam
+								<i class="glyphicon glyphicon-flag" aria-hidden="true"> </i> Quốc Ca Việt Nam
 								</a>
 							</h3>
 						</div>
@@ -331,7 +379,7 @@
 						<div class="panel-heading" id="SongHeading">
 							<h3 class="panel-title">
 								<a id="song1" data-toggle="collapse" data-target="#collapsesong1" href="#collapsesong1" onclick="return false;">
-								Sinh Hoạt Songs
+								<i class="glyphicon glyphicon-music" aria-hidden="true"> </i> Sinh Hoạt Songs
 								</a>
 							</h3>
 						</div>
@@ -445,8 +493,8 @@
 					<div class="panel panel-primary">
 						<div class="panel-heading" id="CampSongHeading">
 							<h3 class="panel-title">
-								<a id="song1" data-toggle="collapse" data-target="#collapsecampsong" href="#collapsecampsong" onclick="return false;">
-								Lửa Thiêng (Campfire) Songs
+								<a id="song2" data-toggle="collapse" data-target="#collapsecampsong" href="#collapsecampsong" onclick="return false;">
+								<i class="glyphicon glyphicon-fire" aria-hidden="true"> </i> Lửa Thiêng (Campfire) Songs
 								</a>
 							</h3>
 						</div>
@@ -561,6 +609,14 @@
             $('.panel-collapse').addClass('in');
         }
 		</script>
+
+	<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
 		<script src="js/utils/bootstrap.min.js"></script>
 	</body>
 </html>
