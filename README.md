@@ -9,8 +9,13 @@ Current Features:
   * Automatically gives points at end of each day
   * Get counts
 * Resources
+  * Team Names/Responses
   * 10 DTN
   * Thieu Nhi Tan Hanh Ca
   * Hiep Si Ca - Vietnamese/English translation
     * mp3 for reference
   * Beatitudes
+  * Kinh RLTL
+  * Quoc Ca
+  * Sinh Hoat Songs
+  * Camp Songs
