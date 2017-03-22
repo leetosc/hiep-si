@@ -542,7 +542,7 @@ body {
 }
 
 
-@media(max-width:414px) {
+/*@media(min-width:414px) {
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
@@ -600,7 +600,7 @@ body {
         position: relative;
         margin-right: 0;
     }
-
+}*/
 
 
 
