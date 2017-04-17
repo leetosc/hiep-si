@@ -326,11 +326,11 @@ function calculateDayBHT() {
         comment: "BHT for " + currentMonth + "/" + currentDay + "/" + currentYear
         };
       if (teamcounts[team] >=1 && teamcounts[team] < 4){
-        body.points = 3;
+        body.points = 1;
       } else if (teamcounts[team] >= 4 && teamcounts[team] <6){
-          body.points = 6;
+          body.points = 2;
       } else if (teamcounts[team] >= 6){
-          body.points = 9;
+          body.points = 3;
       }
 
       console.log(body);
