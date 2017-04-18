@@ -225,7 +225,10 @@ app.get('/DHNHLetter', function(req, res) {
   res.sendFile(__dirname + '/public/files/Letter-Thong-Bao-DHNH-2017.pdf');
 });
 
-
+//FunRunForm
+app.get('/FunRunForm', function(req, res) {
+  res.sendFile(__dirname + '/public/files/FunRunForm.pdf');
+});
 
 
 
