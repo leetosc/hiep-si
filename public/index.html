@@ -25,6 +25,10 @@
 
 		/* Ensure elements load hidden before ScrollReveal runs */
 		.sr .animatedpanel { visibility: hidden; }
+		.sr .textfromleft { visibility: hidden; }
+		.sr .textfromright { visibility: hidden; }
+		.sr .textfromtop { visibility: hidden; }
+		.sr .textfrombot { visibility: hidden; }
 
 		</style>
 
@@ -68,43 +72,50 @@
 											<h2>Announcements</h2>
 											<!--Please enroll in the Remind group to receive important announcements!-->
 											<!--<br><br>-->
-											<h5>Project Info posted in the <a href="#AssignmentsPanelLink">Assignments</a> section</h5>
 
-											<br><br>
+											<div class="textfromleft">
+
+												<h5>Project Info posted in the <a href="#AssignmentsPanelLink">Assignments</a> section</h5>
+
+												<br><br>
 
 
-											Ask Anh Quang or any HT a question:
-											<br><a href='http://quangxvu-developer-edition.na14.force.com/anonbox' target="_blank">Anonymous Question Box</a>
-											<br><font size="-1">
-												•If your question is personal or if you would like an quick response, include your email and Anh Quang will respond to you directly.  Otherwise, general questions will be covered in Anh Quang's next lesson.
-												<br>•If you have suggestions or issues, please post those in the box as well.</font>
-											<br>
-											<br>
+												Ask Anh Quang or any HT a question:
+												<br><a href='http://quangxvu-developer-edition.na14.force.com/anonbox' target="_blank">Anonymous Question Box</a>
+												<br><font size="-1">
+													•If your question is personal or if you would like an quick response, include your email and Anh Quang will respond to you directly.  Otherwise, general questions will be covered in Anh Quang's next lesson.
+													<br>•If you have suggestions or issues, please post those in the box as well.</font>
+												<br>
+												<br>
 											
+											</div>
 
 										</div>
 										<div class="col-md-4">
-											<center><img src="images/hiepsi.png" id="penguin"></center>
+											<center><img class="textfromtop" src="images/hiepsi.png" id="penguin"></center>
 											<br>
-											<br><u>Top Teams</u>
-											<br>October: <b>Anre</b>
-											<br>November: <b>Toma</b> and <b>Giacobe Tien</b>
-											<br>December: <b>Giacobe Tien</b> and <font size="-2"><b>Toma</b></font>
-											<br>January: <b>Nathanaen</b> and <font size="-1">(<b>Toma</b> and <b>Giacobe Tien</b>)</font>
-											<br>February: <b>Giacobe Tien</b>
-											<br>March: <b>Giacobe Tien</b>
-											<br>
-											<font size="-1">
-											<br><b>Attendance:</b> Up to <b>20 points</b> each Sunday
-											<br><b>Participation:</b> Up to <b>15 points</b> each Sunday
-											<br><b>BHT:</b> Up to <b>21 pts</b> per week (Each day: 1-3 members: 1 pt, 4-5 members: 2 pts, 6 or more members: 3 pts)
-											<br><b>Other Opportunities:</b> Will be announced
-											</font>
+											
+											<div class="textfrombot">
+												<br><u>Top Teams</u>
+												<br>October: <b>Anre</b>
+												<br>November: <b>Toma</b> and <b>Giacobe Tien</b>
+												<br>December: <b>Giacobe Tien</b> and <font size="-2"><b>Toma</b></font>
+												<br>January: <b>Nathanaen</b> and <font size="-1">(<b>Toma</b> and <b>Giacobe Tien</b>)</font>
+												<br>February: <b>Giacobe Tien</b>
+												<br>March: <b>Giacobe Tien</b>
+												<br>
+												<font size="-1">
+												<br><b>Attendance:</b> Up to <b>20 points</b> each Sunday
+												<br><b>Participation:</b> Up to <b>15 points</b> each Sunday
+												<br><b>BHT:</b> Up to <b>21 pts</b> per week (Each day: 1-3 members: 1 pt, 4-5 members: 2 pts, 6 or more members: 3 pts)
+												<br><b>Other Opportunities:</b> Will be announced
+												</font>
+											</div>
 
 										</div>
 										<div class="col-md-4">
 											<h2>Upcoming Events</h2>
-											<div>
+											<div class="textfromright">
 
 												<img src="images/funrunlogo.jpg" class="img-responsive" alt="Don Bosco Fun Run">
 												<br>Come out as we gather the church community in a fun day of running and raising money to support a good cause!
@@ -199,7 +210,7 @@
 												<figcaption class="figure-caption">DHNH Mien Nam 2014</figcaption>
 											</figure>-->
 
-											<div id="myCarousel" class="carousel slide" data-ride="carousel">
+											<div id="myCarousel" class="carousel slide textfromtop" data-ride="carousel">
 												<!-- Indicators -->
 												<ol class="carousel-indicators">
 													<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -242,7 +253,7 @@
 										<div class="col-md-6">
 											
 											<h3>Logistics</h3>
-											<div class="well">
+											<div class="well textfromleft">
 												• Theme: "Do not fear, for I am with you." - Isaiah 41:10
 												<br>• Time: June 29 - July 2, 2017
 												<br>• Location: Giáo Xứ Đức Mẹ La Vang
@@ -254,7 +265,7 @@
 										<div class="col-md-6">
 											
 											<h3>Forms</h3>
-											<div class="well">
+											<div class="well textfromright">
 												<a href="/DHNHLetter" target="_blank">Thong Bao</a>
 												<br><a href="/DHNHForm1" target="_blank">Form 1: Registration</a>
 												<br><a href="/DHNHForm2" target="_blank">Form 2: Personal Health</a>
@@ -280,7 +291,7 @@
 										<div class="col-md-4">
 											
 											<h3>Sports</h3>
-											<div class="well">
+											<div class="well textfromleft">
 												<!--<ul>
 													<li>• Basketball</li>
 													<li>• Soccer</li>
@@ -335,7 +346,7 @@
 										<div class="col-md-4">
 											
 											<h3>Văn Nghệ</h3>
-											<div class="well">
+											<div class="well textfrombot">
 												Coordinator: Tr. Tam Hong
 												<br>Leads: Tr. Linh Pham, Tr. Jasmine Pham, Tr. Phuong Ha Mai
 
@@ -375,7 +386,7 @@
 										<div class="col-md-4">
 											
 											<h3>Jeopardy</h3>
-											<div class="well">
+											<div class="well textfromright">
 												More info to come
 												
 												<br>Coaches: Tr. Denny, Tr. Kathy
@@ -393,14 +404,14 @@
 
 									<div class="row">
 										<div class="col-md-6">
-											<figure class="figure">
+											<figure class="figure textfromleft">
 												<img src="images/LogoFlyer.jpg" alt="DesignContest" class="img-responsive">
 												<figcaption class="figure-caption">Logo Design Contest</figcaption>
 											</figure>
 											<br>
 										</div>
 										<div class="col-md-6">
-											<figure class="figure">
+											<figure class="figure textfromright">
 												<img src="images/Video-CollageFlyer.jpg" alt="VideoContest" class="img-responsive">
 												<figcaption class="figure-caption">Video Contest</figcaption>
 											</figure>
@@ -700,6 +711,10 @@
 
         <script type="text/javascript">
             sr.reveal('.animatedpanel',{reset:false, viewFactor:0.10, easing:'ease-in-out', duration:500, origin:'left', scale:1});
+						sr.reveal('.textfromleft',{reset:false, viewFactor:0.15, easing:'ease-in-out', duration:500, origin:'left', scale:1});
+						sr.reveal('.textfromright',{reset:false, viewFactor:0.15, easing:'ease-in-out', duration:500, origin:'right', scale:1});
+						sr.reveal('.textfromtop',{reset:false, viewFactor:0.15, easing:'ease-in-out', duration:500, origin:'top', scale:1});
+						sr.reveal('.textfrombot',{reset:false, viewFactor:0.15, easing:'ease-in-out', duration:500, origin:'bottom', scale:1});
         </script>
 
 
