@@ -70,11 +70,12 @@ function getMonthName(number) {
 
 
 // Takes payload and calculates points for current month and total and draws graph
+//TODO: does not handle if undefined (empty database)
 function calculateTeams(payload){
 	var currentMonth = new Date().getMonth()+1;
 	var teamlist = {};
 
-	// console.log(payload);
+	console.log(payload);
 
 	for (var element=0; element < payload.length; element++) {
 		if (!(payload[element].name in teamlist)){
