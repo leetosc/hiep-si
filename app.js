@@ -230,7 +230,10 @@ app.get('/FunRunForm', function(req, res) {
   res.sendFile(__dirname + '/public/files/FunRunForm.pdf');
 });
 
-
+//2017-2018 team list
+app.get('/teamlist', function(req, res) {
+  res.sendFile(__dirname + '/public/files/HiepSiTeams.pdf');
+});
 
 
 // Should be the last route
